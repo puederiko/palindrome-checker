@@ -11,6 +11,24 @@
     <script src="assets/js/script.js" defer></script>
   </head>
   <body>
-    <h1>Palindrome Checker</h1>
+    <header></header>
+    <main>
+      <form>
+        <label for="userInput">Characters</label>
+        <input
+          type="text"
+          name="userInput"
+          id="userInput"
+          minlength="3"
+          maxlength="50"
+          size="50"
+          placeholder="I put my thing down, flip it, and reverse it."
+        />
+        <button type="reset" id="reset">Reset</button>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+      <p id="result"></p>
+    </main>
+    <footer></footer>
   </body>
 </html>
