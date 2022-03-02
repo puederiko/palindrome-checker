@@ -36,7 +36,7 @@ function palindrome() {
       ${filterUserInput}.
       In reverse, it's
       ${reverseFilterUserInput}.
-      Thus, "${userInput}" is a palindrome`;
+      Thus, "${userInput}" is not a palindrome`;
     }
   }
 }
