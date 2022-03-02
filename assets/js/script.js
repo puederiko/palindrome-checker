@@ -16,7 +16,7 @@ function palindrome() {
   // if userInput does not meet the requirements
   if (userInput.length < 3 || userInput.length > 50) {
     // populate message to user
-    result.innerText = `Please enter 3-50 characters only.`;
+    result.innerText = `You've entered ${userInput.length} character(s). Please enter 3-50 characters.`;
     // otherwise
   } else {
     // set a variable of parsed letters and numbers thru regex match()
@@ -26,17 +26,17 @@ function palindrome() {
     // if userInput is a palindrome
     if (filterUserInput === reverseFilterUserInput) {
       result.innerText = `The parsed letters and/or numbers are
-    ${filterUserInput}.
-    In reverse, it's
-    ${reverseFilterUserInput}.
-    Thus, "${userInput}" is a palindrome`;
+      ${filterUserInput}.
+      In reverse, it's
+      ${reverseFilterUserInput}.
+      Thus, "${userInput}" is a palindrome`;
       // if userInput is not a palindrome
     } else {
       result.innerText = `The parsed letters and/or numbers are
       ${filterUserInput}.
-    In reverse, it's
-    ${reverseFilterUserInput}.
-    Thus, "${userInput}" is a palindrome`;
+      In reverse, it's
+      ${reverseFilterUserInput}.
+      Thus, "${userInput}" is a palindrome`;
     }
   }
 }
