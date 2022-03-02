@@ -1,43 +1,42 @@
+// global variables
+const result = document.querySelector("#result");
+const regex = /([a-z]|[0-9])/gim;
+
 // addEventLister to the button for when clicked
 document.querySelector("#submit").addEventListener("click", (event) => {
-  // prevent button click default quirk
+  // prevents button click default quirk
   event.preventDefault();
-  // run gatherUserInput()
-  gatherUserInput();
+  // then run palindrome()
+  palindrome();
 });
 
-function gatherUserInput() {
-  // gather userInput value
+function palindrome() {
+  // set userInput variable
   let userInput = document.querySelector("#userInput").value;
-  // run palindrome() with the userInput as the parameter
-  palindrome(userInput);
-}
-
-function palindrome(str) {
-  // get the element to where we'll populate the message
-  let result = document.querySelector("#result");
-  // set regex to gather only letters and numbers
-  let regex = /([a-z]|[0-9])/gim;
-  // get filterred str and stringify it to uppercase
-  let filterStr = str.match(regex).join("").toUpperCase();
-  console.log(filterStr);
-  //
-  let reverseFilterStr = filterStr.split("").reverse().join("");
-  console.log(reverseFilterStr);
-  // if filterStr and reverseFilterSTr is strictly equal,
-  if (filterStr === reverseFilterStr) {
-    // it is a palindrome.
-    result.innerText = `The parsed letters and/or numbers are
-    ${filterStr}.
-    In reverse, it's
-    ${reverseFilterStr}.
-    Thus, "${str}" is a palindrome`;
+  // if userInput does not meet the requirements
+  if (userInput.length < 3 || userInput.length > 50) {
+    // populate message to user
+    result.innerText = `Please enter 3-50 characters only.`;
+    // otherwise
   } else {
-    // Otherwise, it is not.
-    result.innerText = `The parsed letters and/or numbers are
-    ${filterStr}.
+    // set a variable of parsed letters and numbers thru regex match()
+    let filterUserInput = userInput.match(regex).join("").toUpperCase();
+    // set another variable for the reversed version of the parsed userInput
+    let reverseFilterUserInput = filterUserInput.split("").reverse().join("");
+    // if userInput is a palindrome
+    if (filterUserInput === reverseFilterUserInput) {
+      result.innerText = `The parsed letters and/or numbers are
+    ${filterUserInput}.
     In reverse, it's
-    ${reverseFilterStr}.
-    Thus, "${str}" is a palindrome`;
+    ${reverseFilterUserInput}.
+    Thus, "${userInput}" is a palindrome`;
+      // if userInput is not a palindrome
+    } else {
+      result.innerText = `The parsed letters and/or numbers are
+      ${filterUserInput}.
+    In reverse, it's
+    ${reverseFilterUserInput}.
+    Thus, "${userInput}" is a palindrome`;
+    }
   }
 }
